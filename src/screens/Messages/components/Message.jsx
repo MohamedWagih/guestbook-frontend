@@ -1,5 +1,6 @@
 import { Avatar, Box, Center, Stack, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import Reply from './Reply';
 function Message({ message }) {
   return (
     <Box boxShadow="md" p="6" rounded="md" m="4" bg="gray.300">
@@ -15,6 +16,11 @@ function Message({ message }) {
             </Center>
           </Stack>
           <Text>{message.content}</Text>
+          <Box marginLeft={4} bg="gray.500">
+            {message.replies.map((reply) => (
+              <Reply key={reply._id} reply={reply} />
+            ))}
+          </Box>
         </Stack>
       </Stack>
     </Box>

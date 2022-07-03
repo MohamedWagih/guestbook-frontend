@@ -21,7 +21,7 @@ function Messages() {
   return (
     <div>
       {messages.map((message) => (
-        <Message key={message.content} message={message} />
+        <Message key={message._id} message={message} />
       ))}
     </div>
   );
