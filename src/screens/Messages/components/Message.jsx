@@ -1,12 +1,13 @@
-import { Avatar, Box, Center, Stack, Text } from '@chakra-ui/react';
+import { Avatar, Box, Center, Flex, Stack, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
+import CreateReply from './CreateReply';
 import Reply from './Reply';
 function Message({ message }) {
   return (
     <Box boxShadow="md" p="6" rounded="md" m="4" bg="gray.300">
-      <Stack direction="row" gap={4}>
+      <Flex direction="row" gap={4}>
         <Avatar name={message.author.name} />
-        <Stack>
+        <Flex flexDir="column" flex="1">
           <Stack direction="row">
             <Center>
               <Text fontSize="lg">{message.author.name}</Text>
@@ -17,12 +18,13 @@ function Message({ message }) {
           </Stack>
           <Text>{message.content}</Text>
           <Box marginLeft={4} bg="gray.500">
+            <CreateReply messageId={message._id} />
             {message.replies.map((reply) => (
               <Reply key={reply._id} reply={reply} />
             ))}
           </Box>
-        </Stack>
-      </Stack>
+        </Flex>
+      </Flex>
     </Box>
   );
 }
