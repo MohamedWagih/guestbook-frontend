@@ -1,6 +1,6 @@
 import { Box, Button, Center, Heading, Input, Skeleton, Stack, useToast } from '@chakra-ui/react';
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
@@ -17,6 +17,11 @@ function Signup() {
     password: '',
     repeatedPassword: '',
   });
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('guestbook_user'));
+    if (user) navigate('/messages');
+  }, []);
 
   const handleSubmit = async () => {
     console.log('🚀 ~ Signup ~ formData', formData);
