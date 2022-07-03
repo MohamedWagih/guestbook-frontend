@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import CreateMessage from './components/CreateMessage';
 import Message from './components/Message';
 
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
@@ -20,6 +21,7 @@ function Messages() {
   }, []);
   return (
     <div>
+      <CreateMessage />
       {messages.map((message) => (
         <Message key={message._id} message={message} />
       ))}
