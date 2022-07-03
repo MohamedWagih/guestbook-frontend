@@ -1,7 +1,7 @@
-import { Box, Button, Center, Heading, Input, Skeleton, Stack, useToast } from '@chakra-ui/react';
+import { Box, Button, Center, Heading, Input, Skeleton, Stack, Text, useToast } from '@chakra-ui/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const apiEndpoint = process.env.REACT_APP_API_ENDPOINT;
 
@@ -79,6 +79,12 @@ function Login() {
               <Button onClick={handleSubmit} isLoading={isLoading}>
                 Login
               </Button>
+              <Text textAlign="center">
+                Or you can{' '}
+                <Link to="/signup" style={{ color: 'blue' }}>
+                  signup
+                </Link>
+              </Text>
             </Stack>
           </Skeleton>
         </Box>
