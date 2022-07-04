@@ -56,7 +56,7 @@ function CreateReply({ messageId }) {
     }
   };
   return (
-    <Box boxShadow="md" p="6" bg="white">
+    <Box p="6" bg="white">
       <Skeleton isLoaded={!isLoading}>
         <Stack gap={4}>
           {error && <p style={{ color: 'red' }}>{error}</p>}
